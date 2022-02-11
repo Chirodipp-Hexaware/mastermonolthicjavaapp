@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Customer">
+
+   <!-- Perform Insert Operation -->
+   <insert id="insert" parameterClass="Customer">
+      INSERT INTO Customer(id, first_name, last_name, salary)
+      values (#id#, #first_name#, #last_name#, #salary#)
+
+      <selectKey resultClass="int" keyProperty="id">
+         select last_insert_id() as id
+      </selectKey>
+   </insert>
+
+   <!-- Perform Read Operation -->
+   <select id="getAll" resultClass="Customer">
+      SELECT * FROM Customer
+   </select>
+
+   <!-- Perform Update Operation -->
+   <update id="update" parameterClass="Customer">
+      UPDATE Customer
+      SET    first_name = #first_name#
+      WHERE  id = #id#
+   </update>
+
+   <!-- Perform Delete Operation -->
+   <delete id="delete" parameterClass="int">
+      DELETE FROM Customer
+      WHERE  id = #id#
+   </delete>
+
+   <!-- To call stored procedure. -->
+   <procedure id="getEmpInfo" resultClass="Customer" parameterMap="getEmpInfoCall">
+      { call getEmp( #ID# ) } 
+   </procedure>
+	
+   <parameterMap id="getEmpInfoCall" class="map">
+      <parameter property="acctID" jdbcType="INT" javaType="java.lang.Integer" mode="IN"/>
+   </parameterMap>
+
+</sqlMap>

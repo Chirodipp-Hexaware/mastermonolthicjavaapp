@@ -1,0 +1,13 @@
+/* ----------------- A9#box#%environment%_0005FirstBD_PII ----------------- */ 
+
+delete_box: A9#box#%environment%_0005FirstBD_PII
+  insert_job:  A9#box#%environment%_0005FirstBD_PII job_type: b 
+  owner: %autosys.user%
+  group: AST000000000062845
+  svcdesk_sev: 0
+  permission: gx 
+  date_conditions: 1 
+  run_calendar: 1st_busday_of_month
+  start_times: "00:07" 
+  description: "This box runs on 1st BD at 00:07 and starts the Monthly reports batch" 
+  alarm_if_fail: 1 
