@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@172.25.242.37:1521:AMAZETEST</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@172.25.242.37:1521:ORA_MIGRA</property>
         <property name="hibernate.connection.username">ora_migra</property>
         <property name="hibernate.connection.password">wordpass</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</property>
